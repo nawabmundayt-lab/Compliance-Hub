@@ -1,0 +1,106 @@
+@import '../design-tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html, body {
+  background: var(--bg-page);
+  font-family: var(--font-ui);
+  color: var(--text-primary);
+}
+
+@layer components {
+  /* ---- Cards ---- */
+  .card {
+    @apply bg-white rounded-2xl shadow-light border border-black/5;
+  }
+
+  /* ---- KPI cards ---- */
+  .kpi {
+    @apply card relative overflow-hidden p-4 flex flex-col gap-1 min-h-[104px];
+  }
+  .kpi::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-1.5 bg-brand-gold;
+  }
+  .kpi-label {
+    @apply text-[0.68rem] font-bold uppercase tracking-wider text-[#55705a];
+  }
+  .kpi-value {
+    @apply font-display text-3xl text-brand-green leading-none pt-1;
+    font-weight: 900;
+  }
+  .kpi-sub {
+    @apply text-xs text-gray-500;
+  }
+
+  /* ---- Status badges ---- */
+  .badge {
+    @apply inline-flex items-center px-3 py-0.5 rounded-pill text-[0.7rem] font-extrabold uppercase tracking-wider text-white whitespace-nowrap;
+  }
+  .badge-valid   { background: linear-gradient(135deg, #0D6B5E 0%, #0A3B1E 100%); }
+  .badge-upcoming{ background: #2155A3; }
+  .badge-near    { background: #FFF3CD; color: #B45309; border: 1.5px solid #F4B942; }
+  .badge-critical{ background: #D97706; }
+  .badge-expired { background: linear-gradient(135deg, #BC3A3A 0%, #8B2727 100%); }
+  .badge-missing { background: #6B7280; }
+
+  /* ---- Tables ---- */
+  .tbl {
+    @apply w-full text-sm;
+  }
+  .tbl thead th {
+    background: linear-gradient(135deg, #0A3B1E 0%, #14522A 100%);
+    @apply text-brand-gold font-extrabold uppercase tracking-wider text-[0.7rem] px-3 py-2.5 text-left whitespace-nowrap sticky top-0;
+  }
+  .tbl tbody td {
+    @apply px-3 py-2 border-b border-black/5 align-middle;
+  }
+  .tbl tbody tr:nth-child(even) { background: #F6FBF6; }
+  .tbl tbody tr:hover { background: #FFF9E6; }
+
+  /* ---- Buttons ---- */
+  .btn {
+    @apply inline-flex items-center gap-1.5 rounded-pill px-4 py-2 text-[0.78rem] font-bold transition hover:scale-[0.97] active:scale-95 whitespace-nowrap;
+  }
+  .btn-gold  { @apply btn bg-brand-gold text-brand-green hover:bg-brand-golddark; }
+  .btn-green { @apply btn text-white; background: linear-gradient(135deg, #0A3B1E, #14522A); }
+  .btn-ghost { @apply btn bg-white text-brand-green border-2 border-brand-mint hover:border-brand-gold; }
+  .btn-red   { @apply btn text-white; background: linear-gradient(135deg, #BC3A3A, #8B2727); }
+
+  /* ---- Inputs ---- */
+  .input {
+    @apply rounded-xl border-2 border-brand-mint bg-[#F9FDF9] px-3 py-1.5 text-sm text-brand-green outline-none focus:border-brand-gold;
+  }
+  select.input { @apply pr-8; }
+
+  /* ---- Sidebar nav ---- */
+  .nav-item {
+    @apply flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold text-[#CBE5CB] transition hover:bg-white/10;
+  }
+  .nav-item.active {
+    @apply bg-brand-gold text-brand-green shadow-light;
+  }
+
+  /* ---- Callout (cream ribbon from template) ---- */
+  .callout {
+    background: linear-gradient(135deg, #FFF9E6 0%, #FFF3CF 100%);
+    @apply border-2 border-brand-gold rounded-[30px] px-5 py-2.5 inline-flex items-center gap-2 text-sm font-semibold text-brand-green;
+  }
+
+  /* ---- Section title pill ---- */
+  .title-pill {
+    background: linear-gradient(135deg, #0A3B1E 0%, #14522A 100%);
+    @apply text-brand-gold rounded-pill px-6 py-2 text-sm font-extrabold uppercase tracking-[0.15em] text-center inline-block;
+  }
+}
+
+/* slim scrollbars for table containers */
+.scroll-slim::-webkit-scrollbar { height: 8px; width: 8px; }
+.scroll-slim::-webkit-scrollbar-thumb { background: #C8E6D9; border-radius: 40px; }
+.scroll-slim::-webkit-scrollbar-track { background: transparent; }
