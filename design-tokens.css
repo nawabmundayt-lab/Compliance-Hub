@@ -1,0 +1,140 @@
+/* ============================================================
+   PSBA Compliance Hub — Design Tokens
+   Extracted from PSBA_Report_Builder_v20.html (approved template)
+   Import once:  @import './design-tokens.css';
+   ============================================================ */
+
+:root {
+  /* ---- Core brand ---- */
+  --brand-green:        #0A3B1E;   /* primary: navbar, sidebar, headings */
+  --brand-green-2:      #14522A;   /* gradient partner                  */
+  --brand-green-deep:   #14522A;
+  --brand-gold:         #F4B942;   /* accent: bands, keylines, CTA      */
+  --brand-gold-dark:    #E0A82E;   /* gold hover                        */
+  --brand-mint:         #C8E6D9;   /* soft borders / chip hover         */
+  --brand-cream:        #FFF3CD;   /* highlight backgrounds             */
+
+  /* ---- Surfaces ---- */
+  --white:              #FFFFFF;
+  --bg-page:            #EEF2EF;
+  --bg-card:            #FFFFFF;
+  --bg-input:           #F9FDF9;
+  --bg-tint-green:      #E8F5E9;
+  --bg-tint-cream:      #FFFBE6;
+
+  /* ---- Text ---- */
+  --text-primary:       #0A3B1E;
+  --text-body:          #1C3D1A;
+  --text-secondary:     #1C4D2D;
+  --text-muted:         #7A9E7E;
+  --text-grey:          #6B7280;
+  --text-on-green:      #FFFFFF;
+  --text-gold-highlight:#FFE484;
+  --text-pale-green:    #CBE5CB;
+
+  /* ---- Compliance status ---- */
+  --status-valid-1:     #0D6B5E;   /* gradient start (VALID)  */
+  --status-valid-2:     #0A3B1E;   /* gradient end            */
+  --status-upcoming:    #2155A3;
+  --status-upcoming-dk: #1A4490;
+  --status-near-bg:     #FFF3CD;
+  --status-near-text:   #B45309;
+  --status-near-border: #F4B942;
+  --status-critical:    #D97706;
+  --status-critical-dk: #B45309;
+  --status-expired-1:   #BC3A3A;   /* gradient start (EXPIRED) */
+  --status-expired-2:   #8B2727;   /* gradient end             */
+  --status-missing:     #6B7280;
+
+  /* ---- Supporting ---- */
+  --teal:               #0D6B5E;
+  --teal-dark:          #0A5248;
+  --blue:               #2155A3;
+  --red:                #BC3A3A;
+  --red-deep:           #8B2727;
+  --amber:              #B45309;
+  --amber-bright:       #D97706;
+  --success:            #16A34A;
+  --chart-accent:       #6B21A8;
+  --neutral-dark:       #1E2A32;
+  --neutral-mid:        #3A4A55;
+  --neutral-line:       #E0E0E0;
+
+  /* ---- Signature gradients (exact from template) ---- */
+  --grad-header:  linear-gradient(135deg, #0A3B1E 0%, #14522A 100%);
+  --grad-ok:      linear-gradient(135deg, #0D6B5E 0%, #0A3B1E 100%);
+  --grad-issue:   linear-gradient(135deg, #BC3A3A 0%, #8B2727 100%);
+  --grad-callout: linear-gradient(115deg, #F1F9EC 0%, #E2F0DF 100%);
+  --grad-cream:   linear-gradient(135deg, #FFF9E6 0%, #FFF3CF 100%);
+  --grad-alert:   linear-gradient(135deg, #B45309 0%, #D97706 100%);
+
+  /* ---- Typography ---- */
+  --font-print:   'Times New Roman', Times, serif;
+  --font-display: 'Arial Black', Arial, sans-serif;
+  --font-ui:      'Segoe UI', Inter, Arial, sans-serif;
+  --font-urdu:    'Noto Nastaliq Urdu', serif;
+
+  /* ---- Shape ---- */
+  --radius-pill:   40px;
+  --radius-card:   16px;
+  --radius-input:  10px;
+  --radius-badge:  8px;
+
+  /* ---- Depth ---- */
+  --shadow-card:   0 12px 28px rgba(0, 0, 0, 0.20);
+  --shadow-light:  0 3px 10px rgba(0, 0, 0, 0.08);
+  --shadow-bar:    0 6px 14px rgba(0, 0, 0, 0.25);
+  --overlay-brand: rgba(10, 59, 30, 0.93);
+
+  /* ---- Motion (template keeps it minimal) ---- */
+  --transition:    0.2s ease;
+  --hover-squish:  scale(0.97);
+}
+
+/* ---- Reusable primitives ---- */
+
+/* Status badge — per requirements statuses */
+.badge {
+  display: inline-block;
+  padding: 3px 14px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.badge-valid   { background: var(--grad-ok); }
+.badge-upcoming{ background: var(--status-upcoming); }
+.badge-near    { background: var(--status-near-bg);
+                 color: var(--status-near-text);
+                 border: 1.5px solid var(--status-near-border); }
+.badge-critical{ background: var(--status-critical); }
+.badge-expired { background: var(--grad-issue); }
+.badge-missing { background: var(--status-missing); }
+
+/* Data-table header — green gradient + gold uppercase text */
+.table-psba thead th {
+  background: var(--grad-header);
+  color: var(--brand-gold);
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+/* Gold keyline used under navbar & card headers */
+.gold-rule { height: 8px; background: var(--brand-gold); }
+
+/* Logo lockup — white circle + gold ring (per template) */
+.logo-lockup {
+  background: #fff;
+  border-radius: 50%;
+  border: 2px solid var(--brand-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.logo-lockup img { width: 88%; height: 88%; object-fit: contain; }
